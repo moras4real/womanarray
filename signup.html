@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <marquee behavior="" direction=""><h1>Habeebah Nursery and Primary School</h1></marquee> 
+   <input type="text" placeholder="First Name" id="fn">
+   <input type="text" placeholder="Last Name" id="ln">
+   <input type="email" placeholder="Email" id="em">
+   <input type="password" placeholder="Password" id="ps">
+   <button onclick="registerStudents()">sign up</button>
+
+   <script>
+    var allStudents = []
+    if(localStorage.schoolPortal){
+    allStudents = JSON.parse(localStorage.getItem("schoolPortal"))
+    }
+    console.log(allStudents)
+    function registerStudents(){        
+        var student = {
+            firstname : fn.value,
+            lastname : ln.value,
+            email: em.value,
+            password : ps.value
+        }
+        allStudents.push(student)
+        localStorage.setItem("schoolPortal",JSON.stringify(allStudents))
+        window.location.href = "signin.html"
+        console.log(allStudents)
+    }
+   </script>
+</body>
+</html>
+
